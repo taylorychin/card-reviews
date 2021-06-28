@@ -1,0 +1,26 @@
+<%- include("../partials/header")%>
+
+    <table id="list">
+        <thead>
+            <tr>
+                <th>
+                    List of Decks
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% decks.forEach( function(d) { %>
+                <td>
+                    <h3>
+                        <%= d.name %>
+                    </h3>
+                </td>
+                <td> <a href="/decks/<%= d._id %>"> DETAILS</a> </td>
+                <% }) %>
+        </tbody>
+    </table>
+
+
+
+
+    <%- include("../partials/footer")%>
