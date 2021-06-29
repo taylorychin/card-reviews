@@ -5,7 +5,13 @@ const isLoggedIn = require('../config/auth');
 
 router.get('/', decksController.index);
 router.get('/new', isLoggedIn, decksController.new);
-router.post('/', isLoggedIn, decksController.create);
 router.get("/:id", decksController.show);
+
+router.post('/', isLoggedIn, decksController.create);
+
+//router.put("/:id", isLoggedIn, decksController.update); 
+
+router.delete("/:id", isLoggedIn, decksController.delete);
+
 
 module.exports = router;

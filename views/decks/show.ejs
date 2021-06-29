@@ -1,20 +1,23 @@
 <%- include("../partials/header")%>
 
     <section id="show-page">
-        <div>
-            <%= deck.name %>
+        <div>Deck Name: <%= deck.name %>
         </div>
-        <div>Design Company: </div>
-        <div>
-            <%= deck.company %>
+        <div>Design Company: <%= deck.company %>
         </div>
-        <div>Production Company: </div>
-        <div>
-            <%= deck.producer %>
+        <div>Production Company: <%= deck.producer %>
         </div>
+        <div>Description:</div>
         <div>
             <%= deck.desc %>
         </div>
+        <% if(user && user._id.equals(deck.user)) { %>
+
+            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">DELETE DECK</button>
+            </form>
+
+            <% } %>
 
     </section>
 

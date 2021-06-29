@@ -5,6 +5,7 @@ module.exports = {
     new: newDeck,
     create,
     show,
+    delete: deleteDeck,
 }
 
 function index(req, res) {
@@ -27,6 +28,23 @@ function create(req, res) {
 }
 
 function show(req, res) {
-    Deck.findById(req.params.id);
-    res.render('decks/show/', { title: "Deck Details", deck })
+    Deck.findById(req.params.id, function (err, deck) {
+        if (err) console.log(err);
+        res.render('decks/show', { title: "Deck Details", deck });
+    });
 }
+
+async function deleteDeck(req, res) {
+    const deck = await Deck.findOne({ 'decks._id': req.params.id });
+    const deck = deck.id(req.params.id);
+    if (!deck.user.equals(req.user._id)) return res.redirect(`/movies/${deck._id}`);
+    deck.remove();
+    await deck.save();
+    res.redirect(`/decks`);
+}
+
+// function deleteDeck(req, res) {
+//     Deck.findOneAndDelete(
+//         {_id: req.params.id, user}
+//     )
+// }
