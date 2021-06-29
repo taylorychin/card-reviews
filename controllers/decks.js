@@ -36,7 +36,7 @@ function show(req, res) {
 
 async function deleteDeck(req, res) {
     const deck = await Deck.findOne({ 'decks._id': req.params.id });
-    const deck = deck.id(req.params.id);
+    deck = deck.id(req.params.id);
     if (!deck.user.equals(req.user._id)) return res.redirect(`/movies/${deck._id}`);
     deck.remove();
     await deck.save();
