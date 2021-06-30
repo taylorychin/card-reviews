@@ -13,5 +13,4 @@ router.post('/', isLoggedIn, decksController.create);
 
 router.delete("/:id", isLoggedIn, decksController.delete);
 
-
 module.exports = router;
