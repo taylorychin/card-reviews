@@ -34,17 +34,13 @@ function show(req, res) {
     });
 }
 
-async function deleteDeck(req, res) {
-    const deck = await Deck.findOne({ 'decks._id': req.params.id });
-    deck = deck.id(req.params.id);
-    if (!deck.user.equals(req.user._id)) return res.redirect(`/movies/${deck._id}`);
-    deck.remove();
-    await deck.save();
-    res.redirect(`/decks`);
+
+function deleteDeck(req, res) {
+    Deck.findOneAndDelete(
+        { _id: req.params.id, userRecommending: req.user._id },
+        function (err) {
+            res.redirect('/decks');
+        }
+    );
 }
 
-// function deleteDeck(req, res) {
-//     Deck.findOneAndDelete(
-//         {_id: req.params.id, user}
-//     )
-// }

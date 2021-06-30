@@ -14,7 +14,7 @@
         </div>
         <% if(user && user._id.equals(deck.user)) { %>
 
-            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+            <form action="/decks/<%= deck._id %>?_method=DELETE" method="POST">
                 <button type="submit">DELETE DECK</button>
             </form>
 
