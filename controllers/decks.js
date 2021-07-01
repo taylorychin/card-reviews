@@ -48,13 +48,13 @@ function deleteDeck(req, res) {
 }
 
 function update(req, res) {
-    book.findOneAndUpdate(
+    Deck.findOneAndUpdate(
         { _id: req.params.id, user: req.user._id },
         req.body,
         { new: true },
-        function (err, book) {
+        function (err, deck) {
             if (err || !deck) return res.redirect('/decks');
-            res.redirect(`decks/${deck._id}`);
+            res.redirect(`/decks/${deck._id}`);
         }
     );
 }
@@ -62,6 +62,6 @@ function update(req, res) {
 function edit(req, res) {
     Deck.findOne({ _id: req.params.id, user: req.user._id }, function (err, deck) {
         if (err || !deck) return res.redirect('/decks');
-        res.render(`decks/${deck._id}/edit`, { title: "edit deck", deck })
+        res.render(`decks/edit`, { title: "edit deck", deck })
     });
 }

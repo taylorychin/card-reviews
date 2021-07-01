@@ -1,27 +1,26 @@
 <%- include("../partials/header")%>
 
-    <%- include("../partials/header")%>
 
 
-        <form id="edit-form" action="/decks/<%= deck._id %>?_method=PUT" method="POST">
+    <form id="edit-form" action="/decks/<%= deck._id %>?_method=PUT" method="POST">
 
-            <label>Deck Name: </label>
-            <input type="text" name="name" value="<% deck.name =>" <br><br>
-            <label>Designing Company:</label>
-            <input type="text" name="company" value="<%= deck.company %>">
-            <br><br>
-            <label>Printing Company:</label>
-            <input type="text" name="producer" value="<%= deck.producer %>">
-            <br><br>
-            <label>Description:</label>
-            <textarea name="desc" value="<%= deck.desc %> "></textarea>
-            <br><br>
-            <label>picture link</label>
-            <input type="text" name="picture" value="<%= deck.picture %>">
-            <br><br>
+        <label>Deck Name: </label>
+        <input type="text" name="name" value="<%= deck.name %>"> <br><br>
+        <label>Designing Company:</label>
+        <input type="text" name="company" value="<%= deck.company %>">
+        <br><br>
+        <label>Printing Company:</label>
+        <input type="text" name="producer" value="<%= deck.producer %>">
+        <br><br>
+        <label>Description:</label>
+        <textarea name="desc"> <%= deck.desc %>  </textarea>
+        <br><br>
+        <label>picture link</label>
+        <input type="text" name="picture" value="<%= deck.picture %>">
+        <br><br>
 
-            <input type="submit" value="Update Deck">
-        </form>
+        <input type="submit" value="Update Deck">
+    </form>
 
 
-        <%- include("../partials/footer")%>
+    <%- include("../partials/footer")%>

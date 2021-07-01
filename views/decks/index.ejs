@@ -11,14 +11,14 @@
         <tbody>
             <% decks.forEach( function(d) { %>
                 <tr>
-
+                    <h3>
+                        <%= d.name %>
+                    </h3>
                     <td>
                         <img src=<%=d.picture %> alt="deck image" width="200">
                     </td>
                     <td>
-                        <h3>
-                            <%= d.name %>
-                        </h3>
+
                     </td>
                     <td> <a href="/decks/<%= d._id %>"> DETAILS</a> </td>
 
