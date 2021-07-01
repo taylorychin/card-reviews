@@ -2,6 +2,7 @@ const Deck = require("../models/deck");
 
 module.exports = {
     create,
+    delete: deleteReview
 }
 
 //delete review
@@ -20,4 +21,17 @@ function create(req, res) {
             res.redirect(`/decks/${deck._id}`);
         });
     });
+}
+
+async function deleteReview(req, res) {
+    const deck = await Deck.findOne({ 'reviews._id': req.params.id });
+    // Want to ensure that the review was
+    // created by the currently logged in user
+    // before we remove it
+    const review = deck.reviews.id(req.params.id);
+    if (!review.user.equals(req.user._id)) return res.redirect(`/decks/${deck._id}`);
+    review.remove();
+    // Save the updated deck
+    await deck.save();
+    res.redirect(`/decks/${deck._id}`);
 }
