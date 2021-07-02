@@ -24,7 +24,7 @@ Express
 mongoDB
 
 Google OAuth
-
+[TrelloBoard](https://trello.com/b/jnmBiY3V/sei-p2)
 
 
 # Getting Started
