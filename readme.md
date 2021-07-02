@@ -8,7 +8,7 @@ account and restricts people who are not that user from editing or deleting thei
 # Screen Shots
 ![Screenshot of Home Screen](https://i.imgur.com/rj4ncy1.png)
 
-![logic betting buttons](https://i.imgur.com/hIJijz6.png)
+![Create Deck Screen](https://i.imgur.com/5m0oVdn.png)
 
 # Technologies Used
 HTML  
@@ -28,7 +28,7 @@ Google OAuth
 
 
 # Getting Started
-[Create Screen](https://i.imgur.com/5m0oVdn.png)
+[Open app](https://deck-review-list.herokuapp.com/)
 
 When first logging in to the website users are able to view all the entries and reviews for the website. But are not able to create entries or 
 leave reviews unless they are logged in though googles Oauth.
