@@ -1,31 +1,37 @@
 <%- include("../partials/header")%>
-
-    <table id="list">
-        <thead>
-            <tr>
-                <th>
-                    List of Decks
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% decks.forEach( function(d) { %>
+    <section class="display">
+        <table id="list">
+            <thead>
                 <tr>
-                    <h3>
-                        <%= d.name %>
-                    </h3>
-                    <td>
-                        <img src=<%=d.picture %> alt="deck image" width="200">
-                    </td>
-                    <td>
-
-                    </td>
-                    <td> <a href="/decks/<%= d._id %>"> DETAILS</a> </td>
-
+                    <th>
+                        <h1> List of Decks </h1>
+                    </th>
                 </tr>
-                <% }); %>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <% decks.forEach( function(d) { %>
+                    <section class="indexer">
+                        <tr>
+                            <td>
+                                <h2>
+                                    <%= d.name %>
+                                </h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src=<%=d.picture %> alt="deck image" width="200">
+                            </td>
+                        </tr>
+                        <tr class="spacer">
+                            <td> <a href="/decks/<%= d._id %>"> DETAILS</a> </td>
+                        </tr>
+                    </section>
+                    <% }); %>
+            </tbody>
+        </table>
+
+    </section>
 
 
 

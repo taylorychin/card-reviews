@@ -10,6 +10,12 @@
     <title>
         <%= title %>
     </title>
+
+
+
+
+
+
 </head>
 
 <nav>
@@ -17,12 +23,17 @@
     <a href="/decks">ALL DECKS</a> |
     <% if (user) { %>
         <!-- only show if user is logged in. -->
-        <a href="/logout">LOG OUT</a> |
         <a href="/decks/new"> Add New Deck</a> |
+        <div class="login">
+            <a href="/logout">LOG OUT</a>
+        </div>
 
         <% } else { %>
-            <a href="/auth/google" class="login">LOG IN</a>
+            <div class="login">
+                <a href="/auth/google" class="login">LOG IN</a>
+            </div>
             <% } %>
 </nav>
+<hr>
 
 <body>

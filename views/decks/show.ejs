@@ -1,27 +1,32 @@
 <%- include("../partials/header")%>
 
-    <section id="show-page">
-        <div> <img src=<%=deck.picture %> alt="deck image" width="500"></div>
-        <div>Deck Name: <%= deck.name %>
+    <section class="show-page">
+        <div class="show-pic">
+            <div> <img src=<%=deck.picture %> alt="deck image" width="500"></div>
         </div>
-        <div>Design Company: <%= deck.company %>
-        </div>
-        <div>Production Company: <%= deck.producer %>
-        </div>
-        <div>Description:</div>
-        <div>
-            <%= deck.desc %>
-        </div>
-        <% if(user && user._id.equals(deck.user)) { %>
+        <div class="show-info">
+            <div>Deck Name: <%= deck.name %>
+            </div>
+            <div>Design Company: <%= deck.company %>
+            </div>
+            <div>Production Company: <%= deck.producer %>
+            </div>
+            <div>Description:</div>
+            <div>
+                <%= deck.desc %>
+            </div>
+            <% if(user && user._id.equals(deck.user)) { %>
+                <form action="/decks/<%= deck._id %>?_method=DELETE" method="POST">
+                    <button type="submit">DELETE DECK</button>
+                </form>
 
-            <form action="/decks/<%= deck._id %>?_method=DELETE" method="POST">
-                <button type="submit">DELETE DECK</button>
-            </form>
+                <form action="/decks/<%= deck._id %>/edit" method="GET">
+                    <button type="submit">EDIT DECK</button>
+                </form>
+                <% } %>
+        </div>
 
-            <form action="/decks/<%= deck._id %>/edit" method="GET">
-                <button type="submit">EDIT DECK</button>
-            </form>
-            <% } %>
+
 
     </section>
 
